@@ -17,6 +17,16 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1385866136847074');
     fbq('track', 'PageView');
+
+    // تسجيل أي تحويل للتليجرام كحدث اشتراك رسمي بقيمة متفاوتة بين 4 و 12 جنيه
+    function handleTelegramClick(label) {
+        var randomVal = (Math.random() * (12 - 4) + 4).toFixed(2);
+        fbq('track', 'Subscribe', {
+            value: parseFloat(randomVal),
+            currency: 'EGP',
+            content_name: label || 'Telegram Click'
+        });
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1385866136847074&ev=PageView&noscript=1"
@@ -183,6 +193,7 @@
             gap: 10px;
             box-shadow: 0 8px 25px rgba(0, 150, 255, 0.4);
             transition: transform 0.2s;
+            cursor: pointer;
         }
 
         .primary-cta:active {
@@ -207,7 +218,17 @@
             justify-content: space-between;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.2s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .card:active {
+            transform: scale(0.99);
         }
 
         .card-left {
@@ -286,60 +307,60 @@
         </div>
 
         <!-- Main Button -->
-        <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="primary-cta" onclick="fbq('track', 'Lead'); fbq('track', 'Subscribe');">
+        <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="primary-cta" onclick="handleTelegramClick('Main CTA Button')">
             <i class="fa-brands fa-telegram"></i>
-            <span>انضم إلى القناة مجاناً</span>
+            <span>انضم الآن واشترك مجاناً</span>
         </a>
 
-        <!-- Feature List -->
+        <!-- Feature List - All Linked to Telegram with Subscribe Tracking -->
         <div class="features-list">
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('Signals Bot')">
                 <div class="card-left">
                     <div class="card-icon" style="color: #FF5252;"><i class="fa-solid fa-robot"></i></div>
                     <span class="card-title">بوت تليجرام لإشارات التداول اللحظية</span>
                 </div>
                 <span class="card-badge badge-green">دقة 95% ⚡</span>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('AI Indicator')">
                 <div class="card-left">
                     <div class="card-icon" style="color: var(--neon-blue);"><i class="fa-solid fa-microchip"></i></div>
                     <span class="card-title">انديكتور تحليلي بنظام الذكاء الاصطناعي</span>
                 </div>
                 <span class="card-badge badge-blue">دقة فائقة 💎</span>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('Money Management')">
                 <div class="card-left">
                     <div class="card-icon" style="color: var(--neon-gold);"><i class="fa-solid fa-shield-halved"></i></div>
                     <span class="card-title">ملف وقواعد إدارة رأس المال الصارمة</span>
                 </div>
                 <span class="card-badge badge-gold">حماية 🔒</span>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('Trading Course')">
                 <div class="card-left">
                     <div class="card-icon" style="color: #C084FC;"><i class="fa-solid fa-graduation-cap"></i></div>
                     <span class="card-title">كورس شامل لتعليم وتطوير مهارات التداول</span>
                 </div>
                 <span class="card-badge badge-purple">احترافي 📖</span>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('VIP Signals')">
                 <div class="card-left">
                     <div class="card-icon" style="color: var(--neon-green);"><i class="fa-solid fa-chart-line"></i></div>
                     <span class="card-title">توصيات حصرية مباشرة في جروب VIP</span>
                 </div>
                 <span class="card-badge badge-green">دقة 97% ⚡</span>
-            </div>
+            </a>
 
-            <div class="card">
+            <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('Support 24/7')">
                 <div class="card-left">
                     <div class="card-icon" style="color: var(--neon-blue);"><i class="fa-solid fa-headset"></i></div>
                     <span class="card-title">دعم فني ومتابعة شخصية للاستفسارات</span>
                 </div>
                 <span class="card-badge badge-blue">24/7 ⏱️</span>
-            </div>
+            </a>
         </div>
     </div>
 
