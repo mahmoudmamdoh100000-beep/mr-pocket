@@ -18,10 +18,10 @@
     fbq('init', '1385866136847074');
     fbq('track', 'PageView');
 
-    // تسجيل أي تحويل للتليجرام كحدث اشتراك رسمي بقيمة متفاوتة بين 4 و 12 جنيه
+    // تسجيل أي تحويل للتليجرام كحدث شراء رسمي بقيمة متفاوتة بين 4 و 12 جنيه
     function handleTelegramClick(label) {
         var randomVal = (Math.random() * (12 - 4) + 4).toFixed(2);
-        fbq('track', 'Subscribe', {
+        fbq('track', 'Purchase', {
             value: parseFloat(randomVal),
             currency: 'EGP',
             content_name: label || 'Telegram Click'
@@ -312,7 +312,7 @@
             <span>انضم الآن واشترك مجاناً</span>
         </a>
 
-        <!-- Feature List - All Linked to Telegram with Subscribe Tracking -->
+        <!-- Feature List - All Linked to Telegram with Purchase Tracking -->
         <div class="features-list">
             <a href="https://t.me/+6R6qWult-r9mZjBk" target="_blank" class="card" onclick="handleTelegramClick('Signals Bot')">
                 <div class="card-left">
